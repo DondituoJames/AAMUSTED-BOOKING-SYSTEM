@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% block title %}Register Availability{% endblock title %}
+{% block body %}
+<link rel="stylesheet" href="static/counsellor_login.css">
+<script>
+    function goBack(){
+        window.history.forward();
+    }
+
+    setTimeout(goBack(), 0);
+
+    window.onunload = function(){
+       
+    }
+
+    (function(){
+        const redirectUrl = "/"
+        let idleTimeout;
+        const resetIdleTimeout = function (){
+            if(idleTimeout) clearTimeout(idleTimeout);
+
+            idleTimeout = setTimeout(() => window.location.href = redirectUrl, 2000);
+        };
+        ['click','touchstart', 'mousemove'].forEach(evt => document.addEventListener(evt, resetIdleTimeout, false))
+    })();
+    
+</script>
+<div class="title">Register Availability for this counselling session</div>
+<div class="form_container">
+    <form action="/recorded" method="post" class="form-group">
+        <label for="name"></label>
+            <input type="text" name="cname" id="cname" title="Full name" placeholder="e.g Dr. Acheampong Kwame" class="w-100" required>
+            <label for="cphone"></label>
+            <input type="tel" name="cphone" id="cphone" title="Phone Number" placeholder="Enter your phone number" class="w-100" required maxlength="10">
+            <label for="cemail"></label>
+            <input type="email" name="cemail" id="cemail" title="Email" placeholder="Enter your email" class="w-100">
+            <label for="cid"></label>
+            <input type="password" name="cid" id="cid" title="Counsellor ID" placeholder="Password" class="w-100" maxlength="4">
+            <select name="speciality" id="problem_speciality" title="Problem Speciality" class="w-100">
+                <option value="" selected disabled>--Select problem speciality area</option>
+                <option value="Academic">Academic</option>
+                <option value="Health">Health</option>
+                <option value="Business">Business</option>
+                <option value="Social">Social</option>
+                <option value="General">General</option>
+            </select>
+            <select name="venue" id="cvenue" title="Counselling Venue" class="w-100">
+                <option value="" selected disabled>--Select your counselling venue</option>
+                <option value="GL-C1">Graduate lecture - counselling room 1</option>
+                <option value="ROB-C2">ROB - counselling room 2</option>
+                <option value="CBT-C3">CBT - counselling room 3</option>
+            </select>
+            <label for="ctime">Start time &nbsp;</label>
+            <input type="time" name="stime" id="ctime" title="time">
+            <label for="etime">End time &nbsp;</label>
+            <input type="time" name="etime" id="etime" title="time">
+            <div class="input-box">
+                <button type="submit">Submit</button>
+                <a href="/">Cancel</a>
+            </div> 
+    </form>
+</div>   
+{% endblock body %}

@@ -1,0 +1,315 @@
+body{
+    margin: -2rem 0 0 0;
+    padding: 0;
+    background-color: pink;
+    overflow-x: hidden;
+}
+
+.logForm{
+    display: block;
+    background-image: url('assets/u13.jpg');
+    min-width: fit-content;
+    margin: 4rem 6rem;  
+    padding: 1rem 2rem;
+    height: 100vh; 
+}
+
+.btnChangeForm{
+    padding-top: 4px;
+    padding-bottom: 0;
+    margin-left: 10rem;
+    margin-right: 9rem;
+    display: flex;
+    justify-content: center;
+}
+
+.formArea{
+    border: none;
+    min-width: 50%;
+    margin: auto;
+    width: fit-content;
+    margin-bottom: 1rem;
+    background: transparent;
+    padding-top: 1rem;
+    padding-left: auto;
+    padding-right: auot;
+    display: flex;
+    justify-content: center;
+    border-radius: 0.4rem;
+    height: 80%;
+}
+
+
+.forms{
+    position: absolute;
+    display: block;
+    margin: auto;
+    top: 6rem;
+    border-radius: 1rem;
+    min-width: 32rem;
+    
+}
+
+
+
+.btnStyle{
+    border-top: 1px solid black;
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+    border-bottom: none;
+    border-top-right-radius: 4px;
+    border-top-left-radius: 4px;
+    background: transparent;
+    color: black;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    text-align: center;
+    font-family: auto;
+    margin-right: 0.5rem;
+    cursor: pointer;
+    width: 8rem;
+    padding: 0.8rem 0.2rem;
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+    transition: all ease 0.2s;
+}
+
+#stlogin{
+    margin-left: 0.5rem;
+   
+}
+
+#stlogin form{
+    width: 100%;
+}
+
+#btn-login, #lec-btn-login, #btn-form-submit{
+    padding: 0.5rem 2rem;
+    width: 100%;
+    border: none;
+    color: white;
+    background: green;
+    font-size: 1.2rem;
+    border-radius: 0.4rem;
+    font-family: sans-serif;
+    text-align: center;
+    cursor: pointer;
+}
+#stlogin:hover{
+    background-color: #dddada;
+    border-bottom: none;
+    color: white;
+}
+#leform:hover{
+    background-color: #c78c8c;
+    color: white;
+}
+
+#oform:hover{
+    background-color: #e3d6d6;
+    color: white;
+}
+
+.activeBtn1{
+    background: #dddada;
+    color: white;
+}
+.activeBtn2{
+    background: #c78c8c;
+    color: white;
+}
+.activeBtn3{
+    background: #e3d6d6;
+    color: white;
+}
+.gform{
+    position: absolute;
+    padding: 2rem;
+    background: #dddada;
+    box-shadow: 0 0 4px rgb(0 0 0 / 60%);
+    width: 100%;
+    border-radius: 1rem;
+}
+
+.gform .title{
+    text-align: center;
+    font-size: 2rem;
+    font-family: serif;
+}
+
+input, select{
+    width: 100%;
+    text-align: center;
+    font-size: 1.2rem;
+    font-family: serif;
+    border: none;
+    border-radius: 4px;
+    padding: 6px 4px;
+}
+
+form p{
+    text-align: center;
+    font-size: 1.1rem;
+    font-family: cursive
+}
+
+form p a{
+    text-decoration: none;
+}
+
+
+#lecform{
+    background-color: #c78c8c;
+}
+
+.input-box{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    
+}
+
+.employment{
+    width: 100%;
+    margin: 0;
+}
+
+#emp_type_select select, #stress_type_select select,
+#marriage-status select{
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 0.8rem;
+    padding-right: 0.8rem;
+    font-size: 1.1rem;
+    font-family: sans-serif;
+    text-align: center;
+    border: none;
+    border-radius: 0.4rem;
+    min-width: 200px;
+}
+
+#emp_type_select, #stress_type_select{
+    justify-content: space-between;
+}
+
+#stress_type_select select{
+    width: 100%;
+}
+
+#stress_type_select option{
+    text-align: left;
+    font-size: 14px;
+}
+#otherform input{
+    margin: 4px;
+}
+
+#marriage-status{
+    justify-content: space-between;
+}
+
+#marriage-status input{
+    margin-left: -14rem;
+    min-width: 10rem;
+}
+.gender-details{
+    display: flex;
+    flex-direction: row;
+    margin-top: 8px;
+    align-items: center;
+    justify-content: center;
+}
+
+.gender-details input{
+    width: 50px;
+}
+
+
+.hideDiv{
+    animation: hideAnim 0.2s ease-out;
+    
+}
+
+.showDiv{
+    animation: showAnim 0.2s ease-in 0.02s;
+}
+.hide{
+    display: none;
+}
+
+#emp_type_select{
+    margin: 0;
+}
+@keyframes hideAnim{
+    to{
+        opacity:0;
+        transform: translate(-10rem);
+        display: none;
+    }
+}
+
+@keyframes showAnim{
+    from{
+        transform: translateX(10rem);
+        opacity: 0;
+    }
+    to{
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@media(max-width:400px){
+    
+    .btnChangeForm{
+        margin-left: 28px;
+        margin-right: 0;
+        left: 0.68rem;
+        position: absolute;
+        right: 5rem;
+        top: 0.5rem;
+        width: 18rem
+    }
+
+    .btnStyle{
+        padding: 0.2rem 0.1rem;
+        font-family: auto;
+        margin-right: 0.1rem;
+        font-size: 0.8rem;
+    }
+
+    .forms{
+        position: absolute;
+        display: block;
+        margin: auto;
+        top: 6rem;
+        border-radius: 1rem;
+        min-width: 32rem;
+    } 
+
+    .gform{
+        margin-left: 5rem;
+        margin-top: -4rem;
+        width: 20rem
+    }
+
+    .gform .title{
+        font-size: 1rem;
+    }
+
+    input{
+        padding: 4px 1px;
+        font-size: 1.2rem;
+    }
+
+    
+    .input-box{
+        display:block;
+        font-size: 1.1rem;
+    }
+
+    #marriage-status input{
+        margin-left: 0;
+    }
+}

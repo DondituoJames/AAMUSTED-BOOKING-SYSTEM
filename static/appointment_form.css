@@ -1,0 +1,276 @@
+body{
+    background-color: rgb(252, 221, 221);
+    width: 100vw;
+    height: 100vw;
+    overflow: hidden;
+}
+
+.btnDiv{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}   
+
+.btnStyle{
+    padding: 1.1em;
+    border: none;
+    border-bottom-right-radius: 0.1rem;
+    border-bottom-left-radius: 0.1rem;
+    border-top-left-radius: 1.1rem;
+    border-top-right-radius: 1.1rem;
+    background-color: transparent;
+    color: black;
+    font-size: 1.1em;
+    z-index: 99;
+    font-family: fangsong;
+}
+.contentBgColor{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: whitesmoke;
+    margin-top: -2.1rem;
+    height: 100vh;
+    border: none;
+    border-radius: 0.8rem;
+    box-shadow: 0px 0px 0px 0.8px;
+}
+
+.activeBtn{
+    background: whitesmoke;
+    color: red; 
+    padding-left: 3rem;
+    padding-right: 3rem;
+    text-transform: uppercase;
+    padding-top: 0rem;
+    text-align: center;
+    align-items: cente;
+    border-left: 1px solid black;
+    border-top: 1px solid black;
+    border-right: 1px solid black;
+    transition: all 0.3s; 
+}
+
+#studentsForm, #lecturessForm, #othersForm{
+    position: absolute;
+    overflow: hidden;
+} 
+
+#lecturesForm, #othersForm{
+    opacity: 0;
+}
+
+.showForm{
+    animation: animFormEntry 0.15s ease-in forwards;
+}
+
+.hideForm{
+    animation: animFormOut 0.15s ease-out forwards;
+}
+
+.stform, .lecform{
+    display: flex;
+    width: fit-content;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0px;
+    margin: auto;
+    background: #dddada;
+    border-radius: 1rem;
+    padding: 2rem;
+    border: none;
+    border-radius: 0.6rem;
+    border: 1px solid black;
+    
+}
+
+.stform button, .lecform button, input,.otherAppointment input,#work_type, #sector, #stressArea{
+    border: none;
+    border-radius: 0.3rem;
+    padding-left: 5rem;
+    padding-right: 5rem;
+    height: 2rem;
+    margin-left: 1rem;
+    text-align: justify;
+}
+
+.stform p, .lecform p{
+    margin-top: 0.2rem;
+}
+
+.stform a, .lecform a{
+    text-decoration: none;
+    font-size: 1.3rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    cursor: pointer;
+    transform:translateY(-1rem)
+}
+
+#stlogin, #llogin{
+    font-size: 1.2em;
+    padding: 1.2rem auto;
+    text-align: center;
+    background: green;
+    color: white;
+}
+
+.lecform{
+    background-color: #c78c8c;
+    
+}
+
+.title{
+    position: absolute;
+    top: 1rem;
+    font-size: 1.5rem;
+    color: #95031d;
+    font-family: -webkit-body;
+}
+
+.lecform title{
+    color: wheat;
+}
+
+.title hr{
+    margin-top: 0;
+    height: 2px;
+}
+
+#othersForm{
+    top: 4rem;
+}
+
+.otherAppointment{
+    display: block;
+    position: initial;
+    text-align: center;
+    padding: 1.5rem 2rem;
+    background: #e3d6d6;
+    margin: 0.5rem 2rem;
+    margin-top: 2.5rem;
+    /* margin-left: 1rem; */
+    /* margin-right: 1rem; */
+    border: none;
+    border-radius: 1rem;
+    width: fit-content;
+    /* margin-top: 22rem; */
+    height: 100vh;
+
+}
+
+.otherAppointment input{
+    margin-bottom: 1rem;
+}
+
+
+.input-box{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-bottom: 0.5rem;
+
+}
+
+.hidemp{
+    display: none;
+}
+
+.beforeAddEmpDetail{
+    justify-content: start;
+    margin-left: 14px
+}
+
+/* sidebar for smaller screens*/
+
+.sideBtn_container{
+    display: none;
+    flex-direction: column;
+    width: fit-content;
+    position: absolute;
+    height: 100vh;
+    background: white;
+    border: none;
+    border-radius: 0.4rem;
+    box-shadow: 0 0 4px rgb(0 0 0 / 60%);
+    padding: 0.2rem 0.4rem;
+    
+}
+
+.sideBtn_container button{
+    display: block;
+    text-transform: uppercase;
+    display: block;
+    border: none;
+    margin: 0.4rem 0.5rem;
+    border-radius: 0.3rem;
+    box-shadow: 0 0 4px rgb(0 0 0 / 70%);
+    padding: 0.4rem 0.1rem;
+    /* color: white; */
+    font-size: 1.2rem;
+    font-family: 'FontAwesome';
+}
+
+.icon_menu{
+    display: flex;
+    width: fit-content;
+    position: absolute;
+    z-index: 99;
+    left: 22rem;
+}
+
+.sideMenu{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    
+}
+
+.sideBtn_container{
+    
+}
+
+.ml-1rem{
+    margin-left: 1rem;
+}
+.t-15rem{
+    transform: translate(-15rem);
+}
+
+
+@keyframes animFormEntry{
+    from{
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to{
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes animFormOut{
+    to{
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+@keyframes animPopOut{
+    
+    to{
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes popOutSidebar{
+    from{
+        opacity: 0;
+        transform: translateX(-20px)
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0)
+    }
+}
+

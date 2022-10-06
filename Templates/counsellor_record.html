@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counsellor report</title>
+    <link rel="stylesheet" href="./counsellor_record.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row1">Counsellor Record Form</div>
+        <div class="row2">
+            <div class="formContainer">
+                <div class="form">
+                    <p class="p-style">Personal Details</p>
+                    <hr>
+                    <div class="form-input">
+                        <label for="fname"></label>
+                        <input type="text" id="fname" title="First Name" placeholder="First Name" name="fname" required>
+
+                        <label for="sname"></label>
+                        <input type="text" id="sname" title="Other Name(s)" placeholder="Other name(s)" name="fname" required>
+
+                        <label for="phone"></label>
+                        <input type="tel" id="phone" title="Enter Phone" placeholder="Primary contact" name="fname" maxlength="10" required pattern="0123456789">
+                    </div>
+                    <p class="p-style">Professional Details</p>
+                    <hr>
+                    <div class="form-input">
+                        <label for="college"></label>
+                        <input type="text" id="college" title="College" placeholder="Enter Your college" name="college" required>
+
+                        <label for="department"></label>
+                        <input type="text" id="department" title="Other Name(s)" placeholder="Department" name="department" required>
+
+                        <label for="speciality"></label>
+                        <input type="text" id="speciality" title="Enter Phone" placeholder="Specialization" name="fname"  required>
+                    </div>
+                    <p class="p-style">Couselling Details</p>
+                    <hr>
+                    <div class="form-input">
+                        <label for="counselling-area"></label>
+                        <select name="counselling-area" id="counselling-area" title="Specialization">
+                            <option value="" selected disabled>Select area of Specialization</option>
+                            <option value="">Academic</option>
+                            <option value="">Marriage</option>
+                            <option value="">Social</option>
+                            <option value="">Health</option>
+                            <option value="">Others</option>
+                        </select>
+
+                        <label for="office"></label>
+                        <input type="number" name="Room" id="office" title="Office Number" min="1" max="100" step="1" placeholder="Enter Office number"> 
+                            
+                        <label for="time"></label>
+                        <input type="time" name="Room" id="time" title="Office Number" placeholder="What time will be available?"> 
+                    </div>
+                    <div class="form-input" style="justify-content: flex-start;">
+                        <button type="submit" id="counsellor-availability">Submit</button>
+                        <a href="./index.html">Cancel</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

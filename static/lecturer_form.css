@@ -1,0 +1,136 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: pink;
+    height: 100vh;
+}
+
+.mainContainer{
+    display: block;
+    background-color: whitesmoke;
+    margin: 1.5rem 2rem;
+    height: 80%;
+    background-image: url('assets/u13.jpg');
+    height: 100vh;
+}
+
+.formContainer{
+    background-color: #c78c8c;
+    box-shadow: 0 0 4px rgb(0 0 0 / 70%);
+    position: relative;
+    width: 41rem;
+    margin: 1.5rem auto;
+    top: 4rem;
+    border-radius: 0.4rem;
+}
+
+.formContainer h3{
+    text-align: center;
+    position: relative;
+    top: 2rem;
+    font-size: 2rem;
+    font-family: fantasy;
+}
+
+.details{
+    margin-bottom: 1rem;
+}
+
+.formContainer hr{
+    margin: 0;
+    padding: 2px;
+    width: auto
+}
+
+.input-box{
+    display: flex;
+    flex-direction: column;
+}
+
+form{
+    display: flex;
+    padding: 1rem;
+    justify-content: center;
+    width:auto;
+    
+}
+
+.input-box input, .input-box select{
+    width: 16rem;
+    height: 2rem;
+    text-align: center;
+    font-size: 1.2rem;
+    font-family: sans-serif;
+    border: none;
+    border-radius: 0.4rem;
+}
+
+.afterDep{
+    margin-top: 1rem;
+}
+
+.afterDep button{
+    width: 100%;
+    border: none;
+    border-radius: 0.4rem;
+    padding: 1rem 0.5rem;
+    background: green;
+    font-size: 1rem;
+    font-family: sans-serif;
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s;
+}
+
+.gender-details{
+    display: flex;
+    align-items: center;
+}
+
+.gender_container{
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    font-size: 1.3rem;
+    font-family: sans-serif;
+    width: 100%;
+}
+.gender-details input{
+    width: 0.8rem;
+}
+
+.afterDep button:hover{
+    opacity: 0.7;
+}
+
+.afterDep button:active{
+    opacity: 0.3;
+}
+
+.afterDep a{
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+.input-box hr{
+    padding: 0;
+    margin-bottom: 4px;
+}
+
+.hide{
+    display: none;
+}
+
+.hideDiv{
+    opacity: 0;
+    transition: all 0.15s ease-out;
+}
+
+.showDiv{
+    opacity: 1;
+    transition: all 0.15s ease-in;
+}
+

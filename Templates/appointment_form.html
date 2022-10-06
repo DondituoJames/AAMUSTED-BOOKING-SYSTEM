@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./bootstrap-5.1.3-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./appointment_form.css">
+    <link rel="stylesheet" href="./font-awesome-4.7.0/css/font-awesome.css">
+    <title>New Appointment</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="container">
+            <div class="container my-4 btnDiv">
+                <button type="button" class="btnStyle activeBtn" id="btnStudents"
+                    onclick="activeStudent()">Students</button>
+                <button type="button" class="btnStyle" id="btnLectures" onclick="activeLectures()">Lectures</button>
+                <button type="button" class="btnStyle" id="btnOthers" onclick="activeOthers()">Others</button>
+
+            </div>
+            <!--Sidebar for smalle screens begins-->
+            <div class="sideMenu">
+                <div class="icon_menu" onclick="toggleSideMenu()"><i class="fa fa-bars ml-1rem t-15rem"></i></div>
+                <div class="sideBtn_container">
+                    <h5>Select Appointment type</h5>
+                    <button class="side_menu_btns">Students</button>
+                    <button class="side_menu_btns">Lecturers</button>
+                    <button class="side_menu_btns">Others</button>
+                </div>
+            </div>
+             <!--Sidebar for smalle screens ends-->
+            <div class="container contentBgColor">
+                <div class="container taps" id="studentsForm">
+                    <div class="stform">
+                        <div class="title">STUDENT LOGIN
+                            <hr>
+                        </div>
+                        <form action="post" method="post">
+                            <label for="name"></label>
+                            <p><input type="mail" id="name" placeholder="somone@gmail.com"></p>
+                            <label for="stid"></label>
+                            <p><input type="text" id="stid" placeholder="studentID"></p>
+                            <label for="stpassword"></label>
+                            <p><input type="password" id="stpassword" placeholder="xxxxxxx"> </p>
+                            <button type="submit" id="stlogin">Login</button>
+                            <p>Don't have an account? <a href="">Create</a></p>
+                        </form>
+                    </div>
+
+                </div>
+
+                <div class="container taps" id="lecturesForm">
+                    <div class="lecform">
+                        <div class="title">LECTURES LOGIN
+                            <hr>
+                        </div>
+                        <form action="post" method="post">
+                            <label for="lname"></label>
+                            <p><input type="mail" id="lname" placeholder="somone@gmail.com"></p>
+                            <label for="lid"></label>
+                            <p><input type="text" id="lid" placeholder="Staff Number"></p>
+                            <label for="lpassword"></label>
+                            <p><input type="password" id="lpassword" placeholder="xxxxxxx"> </p>
+                            <button type="submit" id="llogin">Login</button>
+                            <p>Don't have an account? <a href="">Create</a></p>
+                        </form>
+                    </div>
+                </div>
+                <div class="taps" id="othersForm">
+                    
+                    <div class="container otherAppointment">
+                        <h4>APPOINTMENT - NON REGISTERED</h4>
+                        <hr>
+                        <div class="input-box">
+                            <label for="oname"></label>
+                            <input type="text" id="oname" placeholder="Enter full name" required>
+                            
+                           
+                        </div>
+                        <div class="input-box">
+                            <label for="ophone"></label>
+                            <input type="tel" id="ophone" placeholder="Phone Number" required>
+                           
+                        </div>
+                        <hr>
+                        
+                        <div class="input-box" id="emp_type_select">
+                            <div class="employment">
+                                <label for="work_type"></label>
+                                <select name="Owork_type beforeAddEmpDetail" id="work_type" title="Work Types">
+                                    <option value="">--Employment Type--</option>
+                                    <option value="employed">Employed</option>
+                                    <option value="self_employed">Self Employed</option>
+                                    <option value="unemployed">Not Employed</option>
+                                </select>
+                            </div>
+                            <div class="employed" id="government">
+                                <label for="sector" style="display: none;"></label>
+                                <select name="Area" id="sector" title="Sector">
+                                    <option value="">--Select Sector--</option>
+                                    <option value="education">Education</option>
+                                    <option value="health">Health</option>
+                                    <option value="casual">Casual</option>
+                                </select>
+                                </div>
+                            </div>
+                        </div>
+
+                    
+                        <hr>
+
+                    </div>
+                    <hr>
+                    
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
+    <script src="./appointment.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,151 @@
+{% extends 'base.html' %}
+{% block title %}Lecturer Appointment{% endblock title %}
+{% block body %}
+<link rel="stylesheet" href="static/lecturer_form.css">
+<div class="mainContainer">
+    <div class="formContainer">
+        <h3>Lecturer Appointment Form</h3>
+        <hr>
+        <form action="/completed-lecturer" method="post">
+            <div class="input-box">
+                Personal details
+                <hr>
+                <div class="details">
+                    <label for="fname"></label>
+                    <input type="text" id="fname" placeholder="First Name" value={{fname}} required maxlength="30" name='lecfname' readonly>
+                    <label for="sname"></label>
+                    <input type="text" id="sname" placeholder="Other Name" value={{sname}} required maxlength="30" name='lecsname' readonly>
+                </div>
+                <div class="details">
+                    <label for="contact"></label>
+                    <input type="tel" id="contact" placeholder="Phone Number" value={{phone}} required maxlength="10" name="lec_phone_no">
+                    <label for="email"></label>
+                    <input type="email" id="email" placeholder="Enter email address" value={{lecid}}  name="lec_email" readonly>
+                </div>
+                Gender
+                <hr>
+                <div class="gender_container">
+                    <div class="gender-details">
+                        <label for="male">Male</label>
+                        <input type="radio" id="male" required title="Married" name="gender-status" value="Male">
+                    </div>
+                    <div class="gender-details">
+                        <label for="female">Female</label>
+                        <input type="radio" id="female" required title="Single" name="gender-status" vaue = "Female">
+                    </div>
+                    <div class="gender-details">
+                        <label for="others">Others</label>
+                        <input type="radio" id="divorced" required title="Divorced" name="gender-status" value="Complicated">
+                    </div>
+                </div>
+                Faculty and department
+                <hr>
+                <div class="details">
+                    <label for="college"></label>
+                    <select name="colleges" id="college" title="Select college">
+                        <option value={{val}} selected disable>{{faculty}}</option>
+                    </select>
+                    <label for="departmentcos"></label>
+                    <select name="departments" id="departmentcos" title="Select department">
+                        <option value={{department}}>{{department}}</option> 
+                    </select>
+                   
+                    <div class="afterDep">
+                        <div class="details">
+                            <label for="Years"></label>
+                            <input type="Number" id="Years" title="Year" min="1" max="20" placeholder="Number of years in service" name="years">
+                        </div>
+                        Problem details
+                        <hr>
+                        <div class="details">
+                            <label for="problemCat"></label>
+                            <select name="Problem Category" id="problemCat" title="Problem Area" onclick="fetchProlemList()">
+                                <option value="" selected disabled>Select Problem Area--</option>
+                                <option value="academic">Academic</option>
+                                <option value="business">Business</option>
+                                <option value="health">Health</option>
+                                <option value="politics">Politics</option>
+                                <option value="social">Social</option>
+                                <option value="general">General</option>
+                            </select>
+                        
+                            <select name="Specify Problem" id="academic" title="Specify Problem" class="hide" >
+                                <option value=""selected disabled>--Specific Problem--</option>
+                                <option value="stress">Work Stress</option>
+                                <option value="marriage_issues">Marriage Issues</option>
+                                <option value="personal">Personal</option>
+                                <option value="other">Others</option>
+                            </select>
+
+                            <select name="Specify Problem" id="business" title="Specify Problem" class="hide" >
+                                <option value="" selected disabled>--Specific Problem--</option>
+                                <option value="trading">Petty Trading</option>
+                                <option value="retailing">Retailing</option>
+                                <option value="entrepreneurial">Entrepreneurial skills</option>
+                                <option value="management">Business  Management skills</option>
+                                <option value="other">Others</option>
+                            </select>
+
+                            <select name="Specify Problem" id="health" title="Specify Problem" class="hide" >
+                                <option value="" selected disabled>--Specific Problem--</option>
+                                <option value="aids">HIV/AIDs</option>
+                                <option value="stroke">Stroke</option>
+                                <option value="hepatitis">Hepatitis</option>
+                                <option value="shock">Shock</option>
+                                <option value="other">Others</option>
+                            </select>
+
+                            <select name="Specify Problem" id="politics" title="Specify Problem" class="hide" >
+                                <option value="" selected disabled>--Specific Problem--</option>
+                                <option value="politics">Student Politics</option>
+                                <option value="leadership">Student Leadership</option>
+                                <option value="election">Election descrepancies</option>
+                                <option value="other">Others</option>
+                            </select>
+
+                            <select name="Specify Problem" id="social" title="Specify Problem" class="hide" >
+                                <option value="" selected disabled>--Specific Problem--</option>
+                                <option value="alcohol">Alcohol and Substance abuse</option>
+                                <option value="assult">Trauma and assult</option>
+                                <option value="anxiety">Stress and anxiety</option>
+                                <option value="retail">Relationships</option>
+                                <option value="marrital">Marital Issues</option>
+                                <option value="other">Others</option>
+                            </select>
+                        </div>
+                        <div class="details">
+                            <label for="counsellor-choice"></label>
+                            <select name="Preferred Counsellor" id="counsellor-choice" title="Choose a Counsellor" onclick="fetchCounsellorList()">
+                                <option value="" selected disabled>--Select Counsellor Category--</option>
+                                <option value="casual">I want to be counselled by a specific counselor</option>
+                                <option value="experience">I want to be counselled by any experienced regardless</option>
+                            </select>
+                            <label for="counsellor_name"></label>
+                            <select name="choose_counsellor" id="counsellor_name" title="Select Counsellor"  class="hide">
+                                <option value="" selected disabled>--Select a counsellor--</option>
+                                {% for i in range(0, len) %}
+                                    <option>{{counsellorName[i]}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <hr>
+                        <div class="details">
+                            <label for="other"></label>
+                            <textarea name="Specify Problem" id="other" cols="15" rows="5" title="inputText" class="hide" placeholder="Please briefly describe your problem" style="width: 100%;"></textarea>
+                        </div>
+                        
+                        <div class="details">
+                            <button type="submit" style="margin-top: 1rem;">Book Appointment now</button>
+                        
+                            <p><a href="/">Cancel</a></p>
+                        </div>
+                         
+                    </div>
+                </div> 
+            </div>
+           
+        </form>
+    </div>
+</div>
+<script src="static/lecturer_form.js"></script>
+{% endblock body %}

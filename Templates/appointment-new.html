@@ -1,0 +1,156 @@
+{% extends 'base.html' %}
+{% block title %}New-Appointment{% endblock title %}
+
+{% block body %}
+<div class="logForm">
+    <div class="btnChangeForm">
+        <button class="btnStyle activeBtn1" id="stlogin" onclick="stformLoaded()">Student</button>
+        <button class="btnStyle" id="leform" onclick="lectureformLoaded()">Lecturers</button>
+        <button class="btnStyle" id="oform" onclick="otherformLoaded()">Others</button>
+    </div>
+    <script type="text/javascript">
+        function preventBack(){
+            window.history.forward();
+        }
+    
+        setTimeout("preventBack()", 0);
+        window.onunload = function(){
+            null;
+        }
+    </script>
+    <div class="formArea">
+        <div class="forms">
+            <div class="gform" id="stform">
+                <div class="title">STUDENT LOGIN
+                    <hr>
+                </div>
+                <form action="/student-appointment" method="post" autocomplete='off'>
+                    <label for="stid"></label>
+                    <p><input type="text" id="stid" placeholder="studentID" name='stid' required maxlength="10" autocomplete="off"></p>
+                    <label for="stpassword"></label>
+                    <p><input type="password" id="stpassword" placeholder="Entr your index number" name='stpassword'  maxlength="10" autocomplete="off"> </p>
+                    <button type="submit" id="btn-login">Login</button>
+                    <p>Having problem? <a href="#">help</a></p>
+                </form>
+            </div>
+            <div class="gform hide" id="lecform">
+                <div class="title">LECTURES LOGIN
+                    <hr>
+                </div>
+                <form action="/lecturer-appointment" method="post">
+                    <label for="staffId"></label>
+                    <p><input type="email" id="staffId" placeholder="Enter email" maxlength="120" name='staffId' required></p>
+                    <label for="staffpassword"></label>
+                    <p><input type="password" id="staffpassword" placeholder="Enter ID" maxlength="4" name="staffpassword" required> </p>
+                    <button type="submit" id="lec-btn-login">Login</button>
+                    <p>Having problem? <a href="#">help</a></p>
+                </form>
+            </div>
+            <form action="/non-reg-complete-app" method="POST">
+                <div class="gform hide" id="otherform">
+                <div class="title" style="font-size: 1.2rem">APPOINTEMNT | NON-REGISTERED
+                    <hr>
+                </div>
+                Personal details
+                <div class="input-box">
+                    <label for="nameOther"></label>
+                    <input type="text" id="nameOther" placeholder="Full Name" name="oname" required>
+                </div>
+                <div class="input-box" style="flex-direction:column;">
+                    <label for="ophone"></label>
+                    <input type="tel" id="ophone" placeholder="Phone Number" name ="ophone" required maxlength="10">
+                    <label for="oid"></label>
+                    <input type="password" placeholder="Enter your ID" id="oid" name ="oid" required maxlength="4">
+                    <label for="dob">Date of Birth</label>
+                    <input type="date" placeholder="Date of Birth" id="dob" name='odob' maxlength="8">
+                </div>
+                <div class="input-box" id="marriage-status">
+                    <div class="employment">
+                        <label for="marital_status"></label>
+                        <select id="marital_status" title="Marriage Status" name="Omarriage">
+                            <option value=""selected disabled>--Marital Status--</option>
+                            <option value="single">Single</option>
+                            <option value="married">Married</option>
+                            <option value="divorced">Divorced</option>
+                        </select>
+                    </div>
+                    
+                </div>
+                <hr>
+                Employment details
+                <div class="input-box" id="emp_type_select">
+                    <div class="employment">
+                        <label for="work_type"></label>
+                        <select name="Owork_type" id="work_type" title="Work Types">
+                            <option value="" selected disabled>--Employment Type--</option>
+                            <option value="employed">Employed</option>
+                            <option value="self_employed">Self Employed</option>
+                            <option value="unemployed">Not Employed</option>
+                        </select>
+                    </div>
+                    <div class="employed" id="government">
+                        <label for="sector"></label>
+                        <select id="sector" title="Sector" name="o_emp_sector">
+                            <option value="" selected disabled>--Select Sector--</option>
+                            <option value="education">Education</option>
+                            <option value="health">Health</option>
+                            <option value="casual">Casual</option>
+                        </select>
+                    </div>
+                </div>
+                <hr>
+                Problem and Counsellor Choice
+                <div class="input-box" id="stress_type_select" style="display: block;">
+                    <div class="employment">
+                        <label for="stress_type"></label>
+                        <select name="o_problem_category" id="problem" title="Stress Type" >
+                            <option value="" selected disabled>--Select problem category--</option>
+                            <option value="academic">Academic</option>
+                            <option value="business">Business</option>
+                            <option value="health">Health</option>
+                            <option value="politices">Politics</option>
+                            <option value="social">Social</option>
+                            <option value="general">General</option>
+                        </select>
+                    </div>
+                    <div class="employment">
+                        <label for="counsellor_type"></label>
+                        <select name="o_counsellor_choice" onclick="fetchCounsellorList()" id="counsellor_type" title="Stress Type">
+                            <option value="" selected disabled>--Consellor Familarity--</option>
+                            <option value="friend">I want to be counselled by specific counsellor</option>
+                            <option value="experienced">I want to be conselled by any experienced counsellor regarless </option>
+                        </select>
+                        
+                        <div class="user_counsellor_choice hide">
+                            <label for="counsellor_name"></label>
+                            <select name="o_choose_counsellor"    style="margin-top:1rem" id="counsellor_name" title="Select Counsellor" >
+                                <option value="" selected disabled>--Select a counsellor--</option>
+                                {% for i in range(0, len)%}
+                                    <option>{{counsellorName[i]}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        
+                    </div>
+
+                </div>
+                <hr>
+                Gender details
+                <div class="gender-details" style="margin-top: 1rem;">
+                    <label for="male" >Male</label>
+                    <input type="radio" name="o_gender" required title="male" id="male" value="Male">
+                    <label for="female" >Female</label>
+                    <input type="radio" name="o_gender" required title="female" id="female"  value="Female">
+                    <label for="compicated" >Other</label>
+                    <input type="radio" name="o_gender" required title="Other" id="complicated" value="Unspecified">
+                </div>
+                <button type="submit" id="btn-form-submit">Submit</button>
+                
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock body %}
+
